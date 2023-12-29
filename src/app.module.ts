@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
+import { KafkaModule } from './http/kafka/kafka.module';
 
 @Module({
-  imports: [],
+  imports: [KafkaModule],
 })
 export class AppModule {}
