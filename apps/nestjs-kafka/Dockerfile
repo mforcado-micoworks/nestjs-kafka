@@ -5,5 +5,6 @@ RUN corepack enable
 
 WORKDIR /usr/src/app
 COPY . .
-RUN ["pnpm", "install", "--frozen-lockfile"]
+RUN pnpm install --frozen-lockfile && \
+    pnpm build nestjs-kafka
 CMD ["pnpm", "start:prod:nestjs-kafka"]

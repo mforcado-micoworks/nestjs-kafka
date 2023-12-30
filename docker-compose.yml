@@ -4,8 +4,31 @@
 version: "2"
 
 services:
+  nestjs-kafka: 
+    image: "nestjs-kafka"
+    container_name: "nestjs-kafka"
+    build:
+      context: .
+      dockerfile: ./apps/nestjs-kafka/Dockerfile
+    command: ["pnpm", "start:prod:nestjs-kafka"]
+    ports:
+      - "3000:3000"
+    depends_on:
+      - producer
+
+  producer: 
+    image: "producer"
+    container_name: "producer"
+    build:
+      context: .
+      dockerfile: ./apps/producer/Dockerfile
+    command: ["pnpm", "start:prod:producer"]
+    depends_on:
+      - kafka
+
   kafka:
     image: docker.io/bitnami/kafka:3.6
+    container_name: "kafka"
     ports:
       - "9092:9092"
     volumes:
