@@ -8,7 +8,6 @@ export class EventsController {
 
   @EventPattern('create_event')
   create(@Payload() createEventDto: any) {
-    console.log('here');
-    console.log(createEventDto);
+    return this.eventsService.create(createEventDto);
   }
 }
