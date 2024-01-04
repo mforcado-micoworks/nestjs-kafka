@@ -26,6 +26,16 @@ services:
     depends_on:
       - kafka
 
+  another_client: 
+    image: "another_client"
+    container_name: "another_client"
+    build:
+      context: .
+      dockerfile: ./apps/another-client/Dockerfile
+    command: ["pnpm", "start:prod:another-client"]
+    depends_on:
+      - kafka
+
   kafka:
     image: docker.io/bitnami/kafka:3.6
     container_name: "kafka"
