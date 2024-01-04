@@ -19,22 +19,13 @@
         "tsConfigPath": "apps/nestjs-kafka/tsconfig.app.json"
       }
     },
-    "producer": {
+    "client": {
       "type": "application",
-      "root": "apps/producer",
+      "root": "apps/client",
       "entryFile": "main",
-      "sourceRoot": "apps/producer/src",
+      "sourceRoot": "apps/client/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/producer/tsconfig.app.json"
-      }
-    },
-    "consumer": {
-      "type": "application",
-      "root": "apps/consumer",
-      "entryFile": "main",
-      "sourceRoot": "apps/consumer/src",
-      "compilerOptions": {
-        "tsConfigPath": "apps/consumer/tsconfig.app.json"
+        "tsConfigPath": "apps/client/tsconfig.app.json"
       }
     }
   }

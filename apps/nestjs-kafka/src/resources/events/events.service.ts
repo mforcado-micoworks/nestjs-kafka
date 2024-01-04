@@ -9,6 +9,7 @@ export class EventsService {
   ) {}
 
   create(createEventDto: CreateEventDto) {
+    console.log('here');
     this.kafkaClient.emit('events', createEventDto);
     return createEventDto;
   }

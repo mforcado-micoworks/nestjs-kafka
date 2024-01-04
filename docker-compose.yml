@@ -14,25 +14,15 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - producer
+      - client
 
-  producer: 
-    image: "producer"
-    container_name: "producer"
+  client: 
+    image: "client"
+    container_name: "client"
     build:
       context: .
-      dockerfile: ./apps/producer/Dockerfile
-    command: ["pnpm", "start:prod:producer"]
-    depends_on:
-      - kafka
-
-  consumer: 
-    image: "consumer"
-    container_name: "consumer"
-    build:
-      context: .
-      dockerfile: ./apps/consumer/Dockerfile
-    command: ["pnpm", "start:prod:consumer"]
+      dockerfile: ./apps/client/Dockerfile
+    command: ["pnpm", "start:prod:client"]
     depends_on:
       - kafka
 
