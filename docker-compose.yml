@@ -4,9 +4,9 @@
 version: "2"
 
 services:
-  nestjs-kafka: 
-    image: "nestjs-kafka"
-    container_name: "nestjs-kafka"
+  nestjs_kafka: 
+    image: "nestjs_kafka"
+    container_name: "nestjs_kafka"
     build:
       context: .
       dockerfile: ./apps/nestjs-kafka/Dockerfile
@@ -41,6 +41,7 @@ services:
     container_name: "kafka"
     ports:
       - '9094:9094'
+      - '9092:9092'
     volumes:
       - "kafka_data:/bitnami"
     environment:
